@@ -5,11 +5,6 @@ import { PriceService } from './price.service';
 export class PriceController {
   constructor(private priceService: PriceService) {}
 
-  @Get()
-  getAllPrices() {
-    return this.priceService.getAllPrices();
-  }
-
   @Get(':coinId')
   getPrice(@Param('coinId') coinId: string) {
     if (!coinId) {

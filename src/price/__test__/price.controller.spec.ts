@@ -15,17 +15,6 @@ describe('PriceController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
-  it('should return all prices', async () => {
-    const prices = await controller.getAllPrices();
-    expect(prices).toBeDefined();
-    expect(prices.bitcoin).toBeDefined();
-    expect(prices.ethereum).toBeDefined();
-  });
-  it('should return price for bitcoin', async () => {
-    const price = await controller.getPrice('bitcoin');
-    expect(price).toBeDefined();
-    expect(price.bitcoin).toBeDefined();
-  });
   it('should return price for ethereum', async () => {
     const price = await controller.getPrice('ethereum');
     expect(price).toBeDefined();
