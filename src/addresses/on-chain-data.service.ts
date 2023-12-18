@@ -1,7 +1,8 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { firstValueFrom, timestamp } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+import { fromWei } from 'web3-utils';
 
 @Injectable()
 export class OnChainDataService {
@@ -41,6 +42,9 @@ export class OnChainDataService {
     const [{ timeStamp, hash }] =
       await this.getAddressOldestTransactions(walletAddress);
 
-    return { balance, firstTxSeen: { timestamp: timeStamp, hash } };
+    return {
+      balance: fromWei(balance, 'ether'),
+      firstTxSeen: { timestamp: timeStamp, hash },
+    };
   }
 }
