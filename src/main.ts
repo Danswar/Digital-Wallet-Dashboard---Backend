@@ -6,7 +6,7 @@ async function bootstrap() {
   app.enableCors({
     origin: '*', // TODO: change this to the domain of your production frontend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type, Accept',
+    allowedHeaders: 'Content-Type, Accept, X-User-Id',
     credentials: true,
   });
   await app.listen(3000);
